@@ -68,5 +68,6 @@ document.getElementById('apply-button').addEventListener('click', function () {
         const discountTotalValue = totalValue - (totalValue * 20) / 100;
         total.innerText = discountTotalValue;
         applyField.value = '';
+        document.getElementById('apply-button').disabled = true;
     }
 })
