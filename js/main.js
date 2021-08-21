@@ -5,31 +5,31 @@ function ProductCost(productCostId, productCostValue) {
     // Call the function updateTotalPrice 
     updateTotalPrice();
 }
-// set memory button event handler
+// set memory-button event handler
 document.getElementById('memory-button').addEventListener('click', function () {
     ProductCost('memory-cost', 0);
 })
-// set memory button-2 event handler
+// set memory-button-2 event handler
 document.getElementById('memory-button-2').addEventListener('click', function () {
     ProductCost('memory-cost', 180);
 })
-// set storage button event handler
+// set storage-button event handler
 document.getElementById('storage-button').addEventListener('click', function () {
     ProductCost('storage-cost', 0);
 })
-// set storage button-2 event handler
+// set storage-button-2 event handler
 document.getElementById('storage-button-2').addEventListener('click', function () {
     ProductCost('storage-cost', 100);
 })
-// set storage button-3 event handler
+// set storage-button-3 event handler
 document.getElementById('storage-button-3').addEventListener('click', function () {
     ProductCost('storage-cost', 180);
 })
-// set delivery button event handler
+// set delivery-button event handler
 document.getElementById('delivery-button').addEventListener('click', function () {
     ProductCost('delivery-charge', 0);
 })
-// set delivery button-2 event handler
+// set delivery-button-2 event handler
 document.getElementById('delivery-button-2').addEventListener('click', function () {
     ProductCost('delivery-charge', 20);
 })
@@ -55,7 +55,7 @@ function updateTotalPrice() {
     // update total amound value
     document.getElementById('total').innerText = totalPrice.innerText;
 }
-// set apply button event handler
+// set apply-button event handler
 document.getElementById('apply-button').addEventListener('click', function () {
     // set input field value
     const applyField = document.getElementById('input-field');
