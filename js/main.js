@@ -1,66 +1,72 @@
-// get cost funtion
-function getCost(costId, costValue) {
-    const totalCost = document.getElementById(costId);
-    totalCost.innerText = costValue;
+// Declaring ProductCost function
+function ProductCost(productCostId, productCostValue) {
+    const productTotalCost = document.getElementById(productCostId);
+    productTotalCost.innerText = productCostValue;
+    // Call the function updateTotalPrice 
     updateTotalPrice();
 }
 // set memory button event handler
 document.getElementById('memory-button').addEventListener('click', function () {
-    getCost('memory-cost', 0);
+    ProductCost('memory-cost', 0);
 })
 // set memory button-2 event handler
 document.getElementById('memory-button-2').addEventListener('click', function () {
-    getCost('memory-cost', 180);
+    ProductCost('memory-cost', 180);
 })
 // set storage button event handler
 document.getElementById('storage-button').addEventListener('click', function () {
-    getCost('storage-cost', 0);
+    ProductCost('storage-cost', 0);
 })
 // set storage button-2 event handler
 document.getElementById('storage-button-2').addEventListener('click', function () {
-    getCost('storage-cost', 100);
+    ProductCost('storage-cost', 100);
 })
 // set storage button-3 event handler
 document.getElementById('storage-button-3').addEventListener('click', function () {
-    getCost('storage-cost', 180);
+    ProductCost('storage-cost', 180);
 })
 // set delivery button event handler
 document.getElementById('delivery-button').addEventListener('click', function () {
-    getCost('delivery-charge', 0);
+    ProductCost('delivery-charge', 0);
 })
 // set delivery button-2 event handler
 document.getElementById('delivery-button-2').addEventListener('click', function () {
-    getCost('delivery-charge', 20);
+    ProductCost('delivery-charge', 20);
 })
-
-// get price funtion
-function getPrice(priceId) {
-    const Price = document.getElementById(priceId);
-    const PriceValue = parseFloat(Price.innerText);
-    return PriceValue;
+// Declaring ProductPrice function
+function ProductPrice(productPriceId) {
+    const productId = document.getElementById(productPriceId);
+    const productPriceValue = parseFloat(productId.innerText);
+    return productPriceValue;
 }
-// get update total price funtion
+// Declaring updateTotalPrice function
 function updateTotalPrice() {
-
-    const price = getPrice('best-price');
-    const memory = getPrice('memory-cost');
-    const storage = getPrice('storage-cost');
-    const delivery = getPrice('delivery-charge');
-
-    document.getElementById('total-price').innerText = price + memory + storage + delivery;
-    document.getElementById('total').innerText = price + memory + storage + delivery;
+    // set best price value
+    const bestPrice = ProductPrice('best-price');
+    // set memory cost value
+    const memoryCost = ProductPrice('memory-cost');
+    // set storage cost value
+    const storageCost = ProductPrice('storage-cost');
+    // set delivery charge value
+    const deliveryCharge = ProductPrice('delivery-charge');
+    // update total price value
+    const totalPrice = document.getElementById('total-price');
+    totalPrice.innerText = bestPrice + memoryCost + storageCost + deliveryCharge;
+    // update total amound value
+    document.getElementById('total').innerText = totalPrice.innerText;
 }
-
+// set apply button event handler
 document.getElementById('apply-button').addEventListener('click', function () {
+    // set input field value
     const applyField = document.getElementById('input-field');
     const inputValue = applyField.value
-
+    // set discount total amound value
     const total = document.getElementById('total');
-    let totalValue = total.innerText
-
-    if (inputValue == 'stevenkaku') {
-        const totalVal = totalValue / 100 * 20;
-        total.innerText = totalValue - totalVal;
-        applyField.value = ' ';
+    const totalValue = total.innerText;
+    // set input condition and update discount total amound
+    if (inputValue == 'stevekaku') {
+        const discountTotalValue = totalValue - (totalValue * 20) / 100;
+        total.innerText = discountTotalValue;
+        applyField.value = '';
     }
 })
